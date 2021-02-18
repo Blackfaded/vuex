@@ -139,21 +139,21 @@ export interface ModuleOptions {
   preserveState?: boolean;
 }
 
-export interface GetterTree<S, R> {
-  [key: string]: Getter<S, R>;
-}
+export type GetterTree<S, R, K extends string = string> = {
+  [key in K]: Getter<S, R>;
+};
 
-export interface ActionTree<S, R> {
-  [key: string]: Action<S, R>;
-}
+export type ActionTree<S, R, K extends string = string> = {
+  [key in K]: Action<S, R>;
+};
 
-export interface MutationTree<S> {
-  [key: string]: Mutation<S>;
-}
+export type MutationTree<S, K extends string = string> = {
+  [key in K]: Mutation<S>;
+};
 
-export interface ModuleTree<R> {
-  [key: string]: Module<any, R>;
-}
+export type ModuleTree<R, K extends string = string> = {
+  [key in K]: Module<any, R>;
+};
 
 declare const _default: {
   Store: typeof Store;
